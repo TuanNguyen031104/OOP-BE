@@ -12,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 
 public class HelloController {
     @FXML // ResourceBundle that was given to the FXMLLoader
@@ -19,6 +20,9 @@ public class HelloController {
 
     @FXML // URL location of the FXML file that was given to the FXMLLoader
     private URL location;
+
+    @FXML // fx:id="root"
+    private StackPane root; // Value injected by FXMLLoader
 
     @FXML // fx:id="changePass_Pass"
     private PasswordField changePass_Pass; // Value injected by FXMLLoader
@@ -54,7 +58,7 @@ public class HelloController {
     private AnchorPane forgor_form; // Value injected by FXMLLoader
 
     @FXML // fx:id="forgor_selectQues"
-    private ComboBox<?> forgor_selectQues; // Value injected by FXMLLoader
+    private ComboBox<String> forgor_selectQues; // Value injected by FXMLLoader
 
     @FXML // fx:id="login_btn"
     private Button login_btn; // Value injected by FXMLLoader
@@ -236,6 +240,7 @@ public class HelloController {
 
         ObservableList<String> listData = FXCollections.observableArrayList(listQ); // Create an ObservableList
         signup_selectQues.setItems(listData); // Set items in the ComboBox
+        forgor_selectQues.setItems(listData);
     }
 
     private void togglePasswordVisibility(CheckBox checkBox, PasswordField passwordField, Tooltip tooltip) {
